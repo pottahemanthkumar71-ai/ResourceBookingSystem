@@ -44,7 +44,6 @@ async def login(user: dict):
 # ==================
 # RESOURCE APIs
 # ==================
-
 @app.get("/api/resources")
 async def get_resources():
 
@@ -53,6 +52,27 @@ async def get_resources():
     )
 
     return response.json()
+
+
+@app.post("/api/resources")
+async def add_resource(resource: dict):
+
+    response = requests.post(
+        f"{SPRING_URL}/api/resources",
+        json=resource
+    )
+
+    return response.json()
+
+
+@app.delete("/api/resources/{resource_id}")
+async def delete_resource(resource_id: int):
+
+    response = requests.delete(
+        f"{SPRING_URL}/api/resources/{resource_id}"
+    )
+
+    return {"message": "Resource Deleted"}
 
 # ==================
 # BOOKING APIs
