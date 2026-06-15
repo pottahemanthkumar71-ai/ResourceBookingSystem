@@ -1,0 +1,25 @@
+# React
+Inventory_dashboard/node_modules
+Inventory_dashboard/dist
+
+# Node Backend
+node-backend/node_modules
+
+# Spring Boot
+target/
+.settings/
+.project
+.classpath
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Logs
+*.log
+
+# ZIP Files
+*.zip
