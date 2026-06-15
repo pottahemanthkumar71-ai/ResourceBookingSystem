@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.project.resourcebooking.entity.User;
 import com.project.resourcebooking.repository.UserRepository;
+import com.project.resourcebooking.security.JwtUtil;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -28,22 +29,37 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public Map<String,String> login(@RequestBody User user) {
+    public Map<String, String> login(
+            @RequestBody User user) {
 
         User dbUser =
-                repository.findByEmail(user.getEmail())
-                .orElse(null);
+                repository.findByEmail(
+                        user.getEmail())
+                        .orElse(null);
 
         if(dbUser == null) {
-            throw new RuntimeException("User Not Found");
+            throw new RuntimeException(
+                    "User Not Found");
         }
 
-        if(!dbUser.getPassword().equals(user.getPassword())) {
-            throw new RuntimeException("Invalid Password");
+        if(!dbUser.getPassword()
+                .equals(user.getPassword())) {
+
+            throw new RuntimeException(
+                    "Invalid Password");
         }
 
-        Map<String,String> response = new HashMap<>();
-        response.put("token", "login-success");
+        String token =
+                JwtUtil.generateToken(
+                        dbUser.getEmail(),
+                        dbUser.getRole());
+
+        Map<String, String> response =
+                new HashMap<>();
+
+        response.put("token", token);
+        response.put("role", dbUser.getRole());
+        response.put("email", dbUser.getEmail());
 
         return response;
     }
