@@ -5,15 +5,16 @@ function Dashboard() {
 
   const navigate = useNavigate();
 
+
   return (
     <>
       <Navbar />
 
       <div className="dashboard-container">
 
-        <div className="welcome-section">
+        
 
-          <h1>👋 Welcome to Resource Booking System</h1>
+        <div className="welcome-section">
 
           <p>
             Manage resources, track reservations,
@@ -21,41 +22,42 @@ function Dashboard() {
           </p>
 
         </div>
-<div className="cards">
 
-  <div
-    className="card"
-    onClick={() => navigate("/history")}
-  >
-    <div className="card-icon">📅</div>
-    <h3>Upcoming Bookings</h3>
-  </div>
+        <div className="cards">
 
-  <div
-    className="card"
-    onClick={() => navigate("/resources")}
-  >
-    <div className="card-icon">🏢</div>
-    <h3>Active Resources</h3>
-  </div>
+          <div
+            className="card"
+            onClick={() => navigate("/history")}
+          >
+            <div className="card-icon">📅</div>
+            <h3>Upcoming Bookings</h3>
+          </div>
 
-  <div
-    className="card"
-    onClick={() => navigate("/addbooking")}
-  >
-    <div className="card-icon">⏰</div>
-    <h3>Reserve Resource</h3>
-  </div>
+          <div
+            className="card"
+            onClick={() => navigate("/resources")}
+          >
+            <div className="card-icon">🏢</div>
+            <h3>Active Resources</h3>
+          </div>
 
-  <div
-    className="card"
-    onClick={() => navigate("/history")}
-  >
-    <div className="card-icon">📖</div>
-    <h3>Booking History</h3>
-  </div>
+          <div
+            className="card"
+            onClick={() => navigate("/addbooking")}
+          >
+            <div className="card-icon">⏰</div>
+            <h3>Reserve Resource</h3>
+          </div>
 
-</div>
+          <div
+            className="card"
+            onClick={() => navigate("/history")}
+          >
+            <div className="card-icon">📖</div>
+            <h3>Booking History</h3>
+          </div>
+
+        </div>
 
         <div className="quick-actions">
 

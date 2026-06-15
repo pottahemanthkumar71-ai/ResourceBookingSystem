@@ -1449,3 +1449,45 @@ table tr:hover{
   box-shadow:
     0 10px 25px rgba(79,70,229,.4);
 }
+.dashboard-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logout-btn {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: #d9363e;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.navbar-logout-btn{
+  background:#ef4444;
+  color:white;
+  border:none;
+  padding:8px 16px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.navbar-logout-btn:hover{
+  background:#dc2626;
+  transform:translateY(-2px);
+}

@@ -4,13 +4,32 @@ function AdminDashboard() {
 
   const navigate = useNavigate();
 
+  const logout = () => {
+
+    localStorage.removeItem("token");
+
+    navigate("/");
+
+  };
+
   return (
 
     <div className="dashboard-container">
 
-      <div className="welcome-section">
+      <div className="dashboard-top-bar">
 
         <h1>🛠 Admin Dashboard</h1>
+
+        <button
+          className="logout-btn"
+          onClick={logout}
+        >
+          🚪 Logout
+        </button>
+
+      </div>
+
+      <div className="welcome-section">
 
         <p>
           Manage resources, bookings, and users from one place.
@@ -25,7 +44,7 @@ function AdminDashboard() {
           onClick={() => navigate("/manage-resources")}
         >
           <div className="card-icon">📦</div>
-          <p>Manage Resources</p>
+          <h3>Manage Resources</h3>
         </div>
 
         <div
@@ -33,7 +52,7 @@ function AdminDashboard() {
           onClick={() => navigate("/manage-bookings")}
         >
           <div className="card-icon">📅</div>
-          <p>Manage Bookings</p>
+          <h3>Manage Bookings</h3>
         </div>
 
         <div
@@ -41,7 +60,7 @@ function AdminDashboard() {
           onClick={() => navigate("/users")}
         >
           <div className="card-icon">👥</div>
-          <p>User Management</p>
+          <h3>User Management</h3>
         </div>
 
       </div>
